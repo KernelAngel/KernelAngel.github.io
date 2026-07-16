@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio - Detailed project information">
+    <title>Personal Portfolio - ItsDatchii</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="photos/fallen angel.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><a href="index.html">Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-details">
+        <div class="container">
+            <a href="index.html#projects" class="btn-link back-link">← Back to Projects</a>
+            <div class="project-header">
+                <h2>Personal Portfolio Website</h2>
+                <div class="project-links">
+                    <a href="#" class="btn-primary">View Live Project</a>
+                    <a href="#" class="btn-primary">View on GitHub</a>
+                </div>
+            </div>
+            <div class="project-detail-content">
+                <div class="project-gallery">
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/portfolio 1.png" alt="Personal Portfolio - Screenshot 1" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/portfolio 1.png" alt="Personal Portfolio - Screenshot 2" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/portfolio 1.png" alt="Personal Portfolio - Screenshot 3" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                </div>
+
+                <!-- Gallery Modal -->
+                <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal()">
+                    <span class="close-modal">&times;</span>
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                </div>
+                
+                <div class="project-info">
+                    <p>Designed and developed a high-performance, responsive portfolio to showcase professional work and technical skills. This project demonstrates expertise in clean semantic HTML, component-based design, and modern CSS practices. Every element was carefully crafted for optimal user experience and performance.</p>
+                    
+                    <h3>Key Features</h3>
+                    <div class="features-accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-button">Fully Responsive Design</button>
+                            <div class="accordion-content">
+                                <p>Seamlessly adapts to all device sizes from mobile to desktop</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Performance Optimized</button>
+                            <div class="accordion-content">
+                                <p>Lazy-loading images, semantic HTML, and minimal CSS for lightning-fast load times</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Interactive Project Gallery</button>
+                            <div class="accordion-content">
+                                <p>Engaging visual galleries with smooth hover animations and zoom effects</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Professional UI/UX</button>
+                            <div class="accordion-content">
+                                <p>Modern dark theme with purple accents for a contemporary, sleek appearance</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Languages Used</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </footer>
+
+    <script>
+        function openGalleryModal(element) {
+            const modal = document.getElementById('galleryModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = element.querySelector('.gallery-image');
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeGalleryModal();
+            }
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

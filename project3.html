@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project 2 - Detailed project information">
+    <title>Project 2 - ItsDatchii</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="photos/fallen angel.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><a href="index.html">Portfolio</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-details">
+        <div class="container">
+            <a href="index.html#projects" class="btn-link back-link">← Back to Projects</a>
+            <div class="project-header">
+                <h2>About This Project</h2>
+                <div class="project-links">
+                    <a href="#" class="btn-primary">View Live Project</a>
+                    <a href="#" class="btn-primary">View on GitHub</a>
+                </div>
+            </div>
+            <div class="project-detail-content">
+                <div class="project-gallery">
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/preview.png" alt="Project 2 - Screenshot 1" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/preview.png" alt="Project 2 - Screenshot 2" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/preview.png" alt="Project 2 - Screenshot 3" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                </div>
+
+                <!-- Gallery Modal -->
+                <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal()">
+                    <span class="close-modal">&times;</span>
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                </div>
+                
+                <div class="project-info">
+                    <p>Add a detailed description of your project here. Explain what the project is about, what problems it solves, and what technologies were used.</p>
+                    
+                    <h3>Key Features</h3>
+                    <div class="features-accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-button">Feature 1</button>
+                            <div class="accordion-content">
+                                <p>Description of the feature</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Feature 2</button>
+                            <div class="accordion-content">
+                                <p>Description of the feature</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Feature 3</button>
+                            <div class="accordion-content">
+                                <p>Description of the feature</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Feature 4</button>
+                            <div class="accordion-content">
+                                <p>Description of the feature</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Technologies Used</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </footer>
+
+    <script>
+        function openGalleryModal(element) {
+            const modal = document.getElementById('galleryModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = element.querySelector('.gallery-image');
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeGalleryModal();
+            }
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

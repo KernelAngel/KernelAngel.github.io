@@ -1491,3 +1491,48 @@ footer p {
         max-width: 320px !important;
     }
 }
+
+/* ==========================================
+   DESKTOP & MOBILE VIEW ALL BUTTON STYLING
+   ========================================== */
+
+/* This applies to ALL screen sizes (Desktop first) */
+.btn-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 3rem 0 0 0 !important; /* Adds space below the project grid */
+    padding: 0 !important;
+}
+
+.view-all-projects {
+    display: inline-block !important;
+    background-color: var(--secondary-color) !important; /* Forces your purple color */
+    color: var(--white) !important; /* White text */
+    padding: 0.9rem 2.5rem !important; /* Generous button padding */
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important; /* Rounded corners */
+    text-align: center !important;
+    width: auto !important; /* Lets it stay button-sized on desktop */
+    min-width: 200px !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+/* Hover effect to make it feel premium */
+.view-all-projects:hover {
+    background-color: var(--accent-color) !important; /* Light purple on hover */
+    transform: translateY(-2px) !important;
+}
+
+/* Specific small overrides just for mobile phone screens */
+@media (max-width: 768px) {
+    .btn-container {
+        margin-top: 1.5rem !important;
+    }
+    .view-all-projects {
+        width: 100% !important; /* Makes it span wider on phones for easy tapping */
+        max-width: 320px !important;
+    }
+}

@@ -1536,3 +1536,35 @@ footer p {
         max-width: 320px !important;
     }
 }
+
+/* ==========================================
+   ANTI-ZOOM & HORIZONTAL OVERFLOW BLOCK
+   ========================================== */
+
+/* 1. Force the master layout containers to stay locked to the screen width */
+html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important; /* Physically slices off any invisible side scrolling */
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    /* 2. Prevent individual section boxes from breaking out of bounds */
+    .container, 
+    .navbar .container,
+    .stats-grid,
+    .projects-grid,
+    .contact-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important; /* Keeps padding inside the screen bounds */
+    }
+
+    /* 3. Safe guard rule to ensure no project image blows out your cards */
+    .project-image, 
+    .hero-banner {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Python Scripts - Detailed project information">
+    <title>Online Store - Kernel Angel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="photos/KA Browser.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="photos/KA Main.png" alt="Kernel Angel Logo">
+                <a href="index.html" style="margin-left: -20px;">Kernel Angel</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="index.html#socials">Socials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-details">
+        <div class="container">
+            <a href="all-projects.html" class="btn-link back-link">← Back to All Projects</a>
+            <div class="project-header">
+                <h2>Online Store</h2>
+            </div>
+            <div class="project-detail-content">
+                <div class="project-gallery">
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store1.png" alt="Project 2 - Screenshot 1" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store2.png" alt="Project 2 - Screenshot 2" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store3.png" alt="Project 2 - Screenshot 3" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store4.png" alt="Project 2 - Screenshot 4" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store5.png" alt="Project 2 - Screenshot 5" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store6.png" alt="Project 2 - Screenshot 6" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store7.png" alt="Project 2 - Screenshot 7" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store8.png" alt="Project 2 - Screenshot 8" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                    <div class="gallery-item" onclick="openGalleryModal(this)">
+                        <img src="photos/project/store9.png" alt="Project 2 - Screenshot 9" class="gallery-image">
+                        <div class="gallery-overlay">View</div>
+                    </div>
+                </div> <!-- Close project-gallery -->
+
+                <!-- Gallery Modal -->
+                <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal()">
+                    <span class="close-modal">&times;</span>
+                    <img class="modal-image" id="modalImage" src="" alt="">
+                </div>
+                
+                <div class="project-info">
+                    <p>An online store with a variety of products and working user, admin pages. Users can browse products, add them to the cart, and make purchases. Admins can manage products, orders, and users.</p>
+                    
+                    <h3>Key Features</h3>
+                    <div class="features-accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-button">Cart, Checkout, and Order Management</button>
+                            <div class="accordion-content">
+                                <p>Fully working shopping cart, checkout, and order management system.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Light mode</button>
+                            <div class="accordion-content">
+                                <p>Toggle between light and dark mode for better user experience.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Admin panel</button>
+                            <div class="accordion-content">
+                                <p>Admins can manage products, orders, and users through a dedicated admin panel.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-button">Clean, Fast, Responsive</button>
+                            <div class="accordion-content">
+                                <p>The online store is designed to be clean, fast, and responsive, providing a seamless shopping experience across all devices.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Technologies Used</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </footer>
+
+    <script>
+        function openGalleryModal(element) {
+            const modal = document.getElementById('galleryModal');
+            const modalImg = document.getElementById('modalImage');
+            const img = element.querySelector('.gallery-image');
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeGalleryModal();
+            }
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

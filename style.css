@@ -1364,3 +1364,42 @@ footer p {
         grid-template-columns: 1fr; /* Stacks selection options vertically on tight screens */
     }
 }
+
+/* ==========================================
+   PROJECT GRID MOBILE COMPACTNESS FIX
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* 1. Reduce massive gap and pad spacing */
+    .projects {
+        padding: 2.5rem var(--spacing-unit); /* Less blank vertical space */
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Force clean single column stacking */
+        gap: 1rem; /* Closes the giant empty spaces between cards */
+        margin-top: 1.5rem;
+    }
+
+    /* 2. Shrink card sizes and text paddings */
+    .project-card {
+        padding: 1rem; /* Less inner padding so cards don't feel inflated */
+        gap: 0.75rem;
+    }
+
+    /* 3. Tame the oversized image */
+    .project-image {
+        height: 150px; /* Drastically drops image height from 220px to save screen real estate */
+    }
+
+    /* 4. Shrink project title & text sizes */
+    .project-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+        font-size: 0.95rem; /* Slightly smaller text for better readability on phones */
+        margin-bottom: 1rem;
+    }
+}

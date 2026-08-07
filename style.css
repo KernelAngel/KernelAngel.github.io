@@ -1403,3 +1403,91 @@ footer p {
         margin-bottom: 1rem;
     }
 }
+
+/* ==========================================
+   VIEW ALL PROJECTS BUTTON FIX
+   ========================================== */
+
+/* Centers the wrapper container */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2.5rem; /* Replaces the broken margin-top */
+    padding: 0 var(--spacing-unit);
+}
+
+/* Styles the actual button text and box */
+.view-all-projects {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px; /* Looks solid on desktop, safely shrinks on mobile */
+    padding: 0.9rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-all-projects:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .btn-container {
+        margin-top: 1.5rem; /* Tighter spacing for tiny phone screens */
+    }
+    .view-all-projects {
+        max-width: 100%; /* Spans full width on small screens for easy tapping */
+    }
+}
+
+/* ==========================================
+   FORCE KILL ALL MOBILE OVERFLOW & FIX CENTERING
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* 1. Prevent the global page container from stretching too wide */
+    html, body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. Fix your container rules to prevent side blowout padding */
+    .container {
+        width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Strip layout width rules breaking your header nav bar */
+    .navbar .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. Mechanically center the button relative to the viewport layout window */
+    .btn-container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 2.5rem 0 0 0 !important;
+        padding: 0 1rem !important;
+        box-sizing: border-box !important;
+    }
+
+    .view-all-projects {
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 320px !important;
+    }
+}

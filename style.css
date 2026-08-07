@@ -1300,3 +1300,67 @@ footer p {
   font-size: 0.60rem;
   padding: 0.3rem 0.5rem;
 }
+
+/* ==========================================
+   MOBILE RESPONSIVE FIXES
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* 1. Scale down giant headlines */
+    .hero h1 {
+        font-size: 2.2rem; /* Shrinks the giant hero text to fit screens safely */
+        letter-spacing: 0;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.25rem;
+    }
+
+    .about h2,
+    .projects h2,
+    .contact h2 {
+        font-size: 1.8rem; /* Reduces section titles so they don't break across multiple lines */
+    }
+
+    /* 2. Fix the broken Navbar layout */
+    .navbar {
+        height: auto; /* Allows navigation to expand vertically if needed */
+    }
+
+    .navbar .container {
+        flex-direction: column; /* Stacks the logo and links vertically */
+        gap: 0.75rem;
+        padding: 1rem 0;
+    }
+
+    .nav-links {
+        gap: 1rem; /* Closes the large gap between desktop links */
+        flex-wrap: wrap; /* Lets links wrap nicely to a second row if room runs out */
+        justify-content: center;
+    }
+
+    .logo span {
+        margin-left: -5px; /* Adjusts overlapping text next to your mobile logo logo */
+    }
+
+    /* 3. Turn the Contact Section into a clean single column */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Forces layout to stack nicely top-to-bottom */
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .contact-grid p {
+        max-width: 100%; /* Allows paragraph text to use the full width available */
+        margin-bottom: 1rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    /* 4. Ensure radio buttons/options have enough space */
+    .contact-reason-options {
+        grid-template-columns: 1fr; /* Stacks selection options vertically on tight screens */
+    }
+}
